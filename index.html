@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#3B0D1C">
+<title>Para minha galega ♥</title>
+
+<!-- Prévia do link no WhatsApp -->
+<meta name="description" content="Tem uma carta esperando por você. Abre com carinho.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Para minha galega ♥">
+<meta property="og:description" content="Tem uma carta esperando por você. Abre com carinho.">
+<meta property="og:url" content="https://renan-ftz-cloud.github.io/carta-para-samira/">
+<meta property="og:image" content="https://renan-ftz-cloud.github.io/carta-para-samira/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fundo: #3B0D1C;
+    --fundo-2: #551729;
+    --papel: #FBEEE8;
+    --papel-sombra: #E9D3CA;
+    --papel-dobra: #F3E1D9;
+    --tinta: #3A0A18;
+    --lacre: #B3263E;
+    --lacre-escuro: #7E1428;
+    --ouro: #E2BC78;
+    --texto-claro: #F6DCD3;
+    color-scheme: dark;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --fundo: #3B0D1C; }
+  }
+  :root[data-theme="dark"] { --fundo: #3B0D1C; }
+  :root[data-theme="light"] { --fundo: #5A1428; --fundo-2: #6E1D33; }
+
+  *, *::before, *::after { box-sizing: inherit; margin: 0; }
+
+  html {
+    height: 100%;
+    background: #3B0D1C;
+    background: var(--fundo);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    height: 100%;
+    min-height: 100%;
+    background-color: #3B0D1C;
+    background:
+      radial-gradient(ellipse at 50% 30%, var(--fundo-2) 0%, transparent 65%),
+      var(--fundo);
+    color: var(--texto-claro);
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topo {
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--ouro);
+    letter-spacing: .02em;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* ---------- Envelope ---------- */
+  .envelope {
+    position: relative;
+    display: block;
+    width: 21rem;
+    width: min(22rem, 86vw);
+    text-decoration: none;
+    color: inherit;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-transition: -webkit-transform .3s ease;
+    transition: transform .3s ease;
+  }
+  .envelope:focus { outline: none; }
+  .envelope:focus-visible { outline: 3px solid var(--ouro); outline-offset: 10px; border-radius: 6px; }
+
+  .caixa {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 66%;
+  }
+
+  /* fundo/interior do envelope */
+  .interior {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: var(--papel-sombra);
+    border-radius: 5px;
+    box-shadow: 0 24px 40px -18px rgba(0,0,0,.65);
+  }
+
+  /* cartinha dentro */
+  .cartinha {
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    top: 8%;
+    bottom: 6%;
+    border-radius: 3px;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0, transparent 1.2rem, rgba(179,38,62,.14) 1.2rem, rgba(179,38,62,.14) calc(1.2rem + 1px)),
+      #FFF8F4;
+    z-index: 2;
+    -webkit-transition: -webkit-transform .6s cubic-bezier(.3,.8,.3,1) .35s;
+    transition: transform .6s cubic-bezier(.3,.8,.3,1) .35s;
+  }
+
+  /* bolso da frente (com o "Para minha galega") */
+  .frente {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    border-radius: 5px;
+    background: var(--papel);
+    -webkit-clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
+    z-index: 3;
+  }
+  .frente::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background:
+      linear-gradient(to top right, transparent 49.6%, rgba(58,10,24,.06) 50%, transparent 50.4%),
+      linear-gradient(to top left, transparent 49.6%, rgba(58,10,24,.06) 50%, transparent 50.4%);
+  }
+
+  .destinatario {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 9%;
+    text-align: center;
+    font-family: "Caveat", "Segoe Script", cursive;
+    font-weight: 700;
+    font-size: 2.1rem;
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1;
+    color: var(--tinta);
+    z-index: 4;
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+
+  /* aba de cima */
+  .aba {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56%;
+    z-index: 5;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: -webkit-transform .45s ease, z-index 0s linear .2s;
+    transition: transform .45s ease, z-index 0s linear .2s;
+  }
+  .aba::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: var(--papel-dobra);
+    border-radius: 5px 5px 0 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    -webkit-filter: drop-shadow(0 2px 2px rgba(0,0,0,.08));
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,.08));
+  }
+
+  .lacre {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 3.6rem;
+    height: 3.6rem;
+    margin-left: -1.8rem;
+    margin-top: -1.9rem;
+    border-radius: 50%;
+    background: #B3263E;
+    background: radial-gradient(circle at 35% 30%, #D8455C, var(--lacre) 55%, var(--lacre-escuro));
+    box-shadow: 0 4px 8px rgba(0,0,0,.35), inset 0 -2px 4px rgba(0,0,0,.25);
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #FFE3E3;
+    font-size: 1.5rem;
+    line-height: 1;
+    -webkit-transition: opacity .2s ease, -webkit-transform .2s ease;
+    transition: opacity .2s ease, transform .2s ease;
+    -webkit-animation: pulsar 2.4s ease-in-out infinite;
+    animation: pulsar 2.4s ease-in-out infinite;
+  }
+  @-webkit-keyframes pulsar {
+    0%, 100% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(1.08); }
+  }
+  @keyframes pulsar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  @media (hover: hover) {
+    .envelope:hover { -webkit-transform: translateY(-4px) rotate(-1deg); transform: translateY(-4px) rotate(-1deg); }
+  }
+  .envelope:active { -webkit-transform: scale(.98); transform: scale(.98); }
+
+  /* ---------- Abrindo ---------- */
+  .envelope.abrindo .lacre {
+    -webkit-animation: none;
+    animation: none;
+    opacity: 0;
+    -webkit-transform: scale(.6);
+    transform: scale(.6);
+  }
+  .envelope.abrindo .aba {
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    z-index: 1;
+  }
+  .envelope.abrindo .cartinha {
+    -webkit-transform: translateY(-55%);
+    transform: translateY(-55%);
+  }
+
+  .dica {
+    margin-top: 2.6rem;
+    font-family: "Caveat", "Segoe Script", cursive;
+    font-size: 1.3rem;
+    color: rgba(246,220,211,.6);
+    text-align: center;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+  }
+  body.saindo .dica, body.saindo .topo { opacity: 0; }
+
+  /* fade de saída da página */
+  .veu {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: #3B0D1C;
+    background: var(--fundo);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 50;
+    -webkit-transition: opacity .35s ease .85s;
+    transition: opacity .35s ease .85s;
+  }
+  body.saindo .veu { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      -webkit-animation: none !important; animation: none !important;
+      -webkit-transition: none !important; transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<p class="topo">uma carta chegou pra você</p>
+
+<a class="envelope" id="envelope" href="motivos.html" aria-label="Abrir a carta: Para minha galega">
+  <div class="caixa">
+    <div class="interior"></div>
+    <div class="cartinha"></div>
+    <div class="frente"></div>
+    <span class="destinatario">Para minha galega</span>
+    <div class="aba"><span class="lacre" aria-hidden="true">♥</span></div>
+  </div>
+</a>
+
+<p class="dica">toque no envelope para abrir</p>
+
+<div class="veu" aria-hidden="true"></div>
+
+<script>
+  (function () {
+    var env = document.getElementById("envelope");
+    var indo = false;
+    var semMovimento = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    env.addEventListener("click", function (e) {
+      if (semMovimento) return; // segue o link na hora
+      e.preventDefault();
+      if (indo) return;
+      indo = true;
+      env.classList.add("abrindo");
+      document.body.classList.add("saindo");
+      setTimeout(function () { window.location.href = env.getAttribute("href"); }, 1250);
+    });
+
+    // ao voltar pelo botão "voltar" do Safari, o envelope aparece fechado de novo
+    window.addEventListener("pageshow", function () {
+      indo = false;
+      env.classList.remove("abrindo");
+      document.body.classList.remove("saindo");
+    });
+  })();
+</script>
+</body>
+</html>

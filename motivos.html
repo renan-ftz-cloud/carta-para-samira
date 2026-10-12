@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#3B0D1C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Motivos que te amo</title>
+
+<!-- Prévia do link no WhatsApp -->
+<meta name="description" content="Tem uma cartinha em cada envelope. Abre com carinho.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Para minha galega ♥">
+<meta property="og:description" content="Tem uma cartinha em cada envelope. Abre com carinho.">
+<meta property="og:url" content="https://renan-ftz-cloud.github.io/carta-para-samira/motivos.html">
+<meta property="og:image" content="https://renan-ftz-cloud.github.io/carta-para-samira/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     EDITE AS MENSAGENS NO FINAL DO ARQUIVO (lista "motivos")
+     ========================================================= */
+
+  :root {
+    --fundo: #3B0D1C;
+    --fundo-2: #551729;
+    --papel: #FBEEE8;
+    --papel-sombra: #E9D3CA;
+    --tinta: #3A0A18;
+    --lacre: #B3263E;
+    --lacre-escuro: #7E1428;
+    --ouro: #E2BC78;
+    --texto-claro: #F6DCD3;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --fundo: #3B0D1C; --texto-claro: #F6DCD3; }
+  }
+  :root[data-theme="dark"] { --fundo: #3B0D1C; --texto-claro: #F6DCD3; }
+  :root[data-theme="light"] { --fundo: #5A1428; --fundo-2: #6E1D33; }
+
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; margin: 0; }
+
+  html {
+    height: 100%;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    /* cor de fundo também no html: evita faixa branca no "puxar" da página no iPhone */
+    background: #3B0D1C;
+    background: var(--fundo);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    background-color: #3B0D1C;
+    background:
+      radial-gradient(ellipse at 50% -10%, var(--fundo-2) 0%, transparent 60%),
+      var(--fundo);
+    color: var(--texto-claro);
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.25rem 3rem;
+    padding: clamp(2.5rem, 8vw, 5rem) 1.25rem 3rem;
+    padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* trava a rolagem do fundo quando a carta está aberta (iOS ignora só overflow:hidden) */
+  body.travado {
+    position: fixed;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  header { text-align: center; max-width: 40rem; margin-bottom: 2.5rem; margin-bottom: clamp(2rem, 6vw, 3.5rem); }
+
+  h1 {
+    font-weight: 500;
+    font-style: italic;
+    font-size: 3rem;
+    font-size: clamp(2.6rem, 10vw, 5.2rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--papel);
+  }
+  .sub {
+    font-family: "Caveat", "Segoe Script", cursive;
+    font-size: 1.35rem;
+    font-size: clamp(1.2rem, 4.2vw, 1.6rem);
+    color: var(--ouro);
+    margin-top: 0.9rem;
+  }
+
+  /* ---------- Envelopes ---------- */
+  .grade {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 56rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.25rem;
+    gap: 1.25rem;
+    gap: clamp(1rem, 3vw, 1.75rem);
+  }
+  @media (max-width: 760px) { .grade { grid-template-columns: repeat(2, 1fr); } }
+
+  .grade li { position: relative; }
+
+  .envelope {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding: 0 0 75%; /* proporção 4:3 que funciona em qualquer versão do Safari */
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #FBEEE8;
+    background: var(--papel);
+    box-shadow: 0 14px 28px -12px rgba(0,0,0,.55);
+    overflow: hidden;
+    -webkit-transition: -webkit-transform .25s ease, box-shadow .25s ease;
+    transition: transform .25s ease, box-shadow .25s ease;
+    font: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: manipulation; /* tira o atraso do toque duplo */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    /* evita a "mancha" de recorte do overflow + border-radius no Safari */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  /* aba do envelope */
+  .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 58%;
+    background: var(--papel-sombra);
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    -webkit-transition: -webkit-transform .35s ease, opacity .35s ease;
+    transition: transform .35s ease, opacity .35s ease;
+    -webkit-transform-origin: top;
+    transform-origin: top;
+  }
+  /* dobras de baixo */
+  .envelope::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background:
+      linear-gradient(to top right, transparent 49.5%, rgba(58,10,24,.07) 50%, transparent 50.5%),
+      linear-gradient(to top left, transparent 49.5%, rgba(58,10,24,.07) 50%, transparent 50.5%);
+  }
+
+  /* hover só em aparelhos com mouse (no iPhone o hover "grudava" depois do toque) */
+  @media (hover: hover) {
+    .envelope:hover { -webkit-transform: translateY(-4px) rotate(-1deg); transform: translateY(-4px) rotate(-1deg); }
+  }
+  .envelope:active { -webkit-transform: scale(.97); transform: scale(.97); }
+  /* regras separadas: se o Safari não conhecer :focus-visible, só esta linha é ignorada */
+  .envelope:focus { outline: none; }
+  .envelope:focus-visible { outline: 3px solid var(--ouro); outline-offset: 4px; }
+
+  .lacre {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    width: clamp(2.6rem, 9vw, 3.4rem);
+    height: clamp(2.6rem, 9vw, 3.4rem);
+    border-radius: 50%;
+    background: #B3263E;
+    background: radial-gradient(circle at 35% 30%, #D8455C, var(--lacre) 55%, var(--lacre-escuro));
+    box-shadow: 0 3px 6px rgba(0,0,0,.35), inset 0 -2px 4px rgba(0,0,0,.25);
+    display: -webkit-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    color: #FFE3E3;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+    line-height: 1;
+    -webkit-transition: -webkit-transform .3s ease, opacity .3s ease;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+
+  /* envelope já aberto */
+  .envelope.aberto::before { -webkit-transform: scaleY(-1); transform: scaleY(-1); opacity: .9; }
+  .envelope.aberto .lacre { -webkit-transform: translate(-50%, -50%) scale(.82); transform: translate(-50%, -50%) scale(.82); opacity: .55; }
+
+  .dica {
+    margin-top: 2.5rem;
+    font-family: "Caveat", cursive;
+    font-size: 1.25rem;
+    color: rgba(246,220,211,.6);
+    text-align: center;
+  }
+
+  /* ---------- Pop-up (carta) ---------- */
+  /* Sobreposição própria: funciona em qualquer iPhone, com ou sem suporte a <dialog> */
+  .popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 1rem;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(25, 4, 11, .72);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+  .popup.mostrar { display: -webkit-box; display: flex; }
+
+  .carta {
+    position: relative;
+    width: 100%;
+    max-width: 30rem;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0, transparent 2.15rem, rgba(179,38,62,.12) 2.15rem, rgba(179,38,62,.12) calc(2.15rem + 1px)),
+      var(--papel);
+    background-color: #FBEEE8;
+    color: var(--tinta);
+    border-radius: 3px;
+    padding: 2.6rem 1.8rem 2rem;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.7);
+    max-height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .popup.mostrar .carta {
+    -webkit-animation: abrir .45s cubic-bezier(.2,.9,.3,1.2);
+    animation: abrir .45s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @-webkit-keyframes abrir {
+    from { -webkit-transform: translateY(40px) scale(.9) rotate(2deg); opacity: 0; }
+    to   { -webkit-transform: none; opacity: 1; }
+  }
+  @keyframes abrir {
+    from { transform: translateY(40px) scale(.9) rotate(2deg); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+  }
+  .carta h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--lacre);
+    margin-bottom: .6rem;
+  }
+  .carta p {
+    font-family: "Caveat", "Segoe Script", cursive;
+    font-size: 1.6rem;
+    font-size: clamp(1.45rem, 5.5vw, 1.75rem);
+    line-height: 2.15rem;
+    white-space: pre-line;
+  }
+  .assinatura {
+    text-align: right;
+    margin-top: 1rem;
+    color: var(--lacre);
+  }
+  .fechar {
+    position: absolute;
+    top: .6rem;
+    right: .6rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #3A0A18;
+    color: var(--tinta);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: manipulation;
+  }
+  @media (hover: hover) {
+    .fechar:hover { background: rgba(179,38,62,.1); }
+  }
+  .fechar:active { background: rgba(179,38,62,.15); }
+  .fechar:focus { outline: none; }
+  .fechar:focus-visible { outline: 2px solid var(--lacre); }
+
+  body { -webkit-animation: entrar .5s ease; animation: entrar .5s ease; }
+  @-webkit-keyframes entrar { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes entrar { from { opacity: 0; } to { opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      -webkit-animation: none !important; animation: none !important;
+      -webkit-transition: none !important; transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Motivos que te amo</h1>
+  <p class="sub">tem uma cartinha em cada envelope, abre com carinho</p>
+</header>
+
+<ul class="grade" id="grade"></ul>
+
+<p class="dica" id="dica">toque em um envelope para abrir</p>
+
+<noscript>
+  <p class="dica">Abra este link no Safari para os envelopes aparecerem ♥</p>
+</noscript>
+
+<div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popup-titulo" aria-hidden="true">
+  <div class="carta" id="carta">
+    <button type="button" class="fechar" id="fechar" aria-label="Fechar carta">&times;</button>
+    <h2 id="popup-titulo"></h2>
+    <p id="popup-texto"></p>
+    <p class="assinatura" id="popup-assinatura"></p>
+  </div>
+</div>
+
+<script>
+  /* =========================================================
+     TROQUE AQUI AS MENSAGENS E A ASSINATURA
+     ========================================================= */
+  var assinatura = "EU TE AMO GALEGA ♥";
+
+  var motivos = [
+    "Porque o seu sorriso é meu porto seguro.",
+    "Porque você é alguem que me traz paz até nos momentos mais caoticos.",
+    "Porque do seu lado eu me sinto em casa, em qualquer lugar, você é meu porto seguro.",
+    "Amo ouvir sua risada, aquela que quando você ri até falta ar.",
+    "Seu colo é meu porto seguro.",
+    "Você significa pra mim, tudo que há de melhor nessa vida.",
+    "Porque até o silêncio com você é bom.",
+    "Porque eu escolheria você de novo ,de novo ,e de novo todos os dias.",
+    "Sua boca.",
+    "Seus olhos.",
+    "Seu jeito carinhoso.",
+    "Seu jeito mandona.",
+    "Sua forma de amar.",
+    "Nossa família.",
+    "Por você ser você.",
+    "Por estar sempre comigo.",
+    "Por me apoiar.",
+    "Por me deixar cuidar de você.",
+    "Por me fazer enxergar que o mundo tem cor.",
+    "Por me fazer sonhar em ser pai novamente.",
+    "Por não desistir de nós.",
+    "Por estar aqui.",
+    "Eu te amo pela história que temos e pela que vamos construir.",
+    "Te amo tanto que não cabe em um HTML."
+  ];
+  /* ========================================================= */
+
+  (function () {
+    var grade = document.getElementById("grade");
+    var popup = document.getElementById("popup");
+    var titulo = document.getElementById("popup-titulo");
+    var texto = document.getElementById("popup-texto");
+    var assin = document.getElementById("popup-assinatura");
+    var dica = document.getElementById("dica");
+    var botaoFechar = document.getElementById("fechar");
+    var abertos = {};
+    var totalAbertos = 0;
+    var ultimoBotao = null;
+    var scrollSalvo = 0;
+
+    function criarEnvelope(msg, i) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "envelope";
+      btn.setAttribute("aria-label", "Abrir motivo " + (i + 1));
+      btn.innerHTML = '<span class="lacre" aria-hidden="true">' + (i + 1) + '</span>';
+      btn.addEventListener("click", function () { abrir(i, btn); });
+      li.appendChild(btn);
+      grade.appendChild(li);
+    }
+
+    for (var i = 0; i < motivos.length; i++) {
+      criarEnvelope(motivos[i], i);
+    }
+
+    function travarRolagem() {
+      scrollSalvo = window.pageYOffset || document.documentElement.scrollTop || 0;
+      document.body.style.top = (-scrollSalvo) + "px";
+      document.body.classList.add("travado");
+    }
+
+    function liberarRolagem() {
+      document.body.classList.remove("travado");
+      document.body.style.top = "";
+      window.scrollTo(0, scrollSalvo);
+    }
+
+    function abrir(i, btn) {
+      ultimoBotao = btn;
+      titulo.textContent = "Motivo nº " + (i + 1);
+      texto.textContent = motivos[i];
+      assin.textContent = assinatura;
+
+      travarRolagem();
+      popup.classList.add("mostrar");
+      popup.setAttribute("aria-hidden", "false");
+      document.getElementById("carta").scrollTop = 0;
+      try { botaoFechar.focus({ preventScroll: true }); } catch (e) { botaoFechar.focus(); }
+
+      btn.classList.add("aberto");
+      if (!abertos[i]) {
+        abertos[i] = true;
+        totalAbertos++;
+      }
+      if (totalAbertos === motivos.length) {
+        dica.textContent = "você leu todos… mas a lista de verdade não tem fim ♥";
+      }
+    }
+
+    function fechar() {
+      if (!popup.classList.contains("mostrar")) return;
+      popup.classList.remove("mostrar");
+      popup.setAttribute("aria-hidden", "true");
+      liberarRolagem();
+      if (ultimoBotao) {
+        try { ultimoBotao.focus({ preventScroll: true }); } catch (e) { ultimoBotao.focus(); }
+      }
+    }
+
+    botaoFechar.addEventListener("click", fechar);
+    // tocar fora da carta fecha
+    popup.addEventListener("click", function (e) { if (e.target === popup) fechar(); });
+    // tecla Esc (teclado bluetooth / computador)
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" || e.keyCode === 27) fechar();
+    });
+  })();
+</script>
+</body>
+</html>
